@@ -47,6 +47,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\Validations\CustomValidationAttribute.cs" />
+    <Compile Include="Attributes\Validations\DigitValidationAttribute.cs" />
+    <Compile Include="Attributes\Validations\LetterOrDigitValidationAttribute.cs" />
+    <Compile Include="Attributes\Validations\MinDigitValidationAttribute.cs" />
+    <Compile Include="Attributes\Validations\NullOrEmptyValidationAttribute.cs" />
+    <Compile Include="Attributes\Validations\SimpleValidationAttribute.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -62,6 +68,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewCommands\IViewCommandSource.cs" />
+    <Compile Include="ViewCommands\ViewCommandAttribute.cs" />
+    <Compile Include="ViewCommands\ViewCommandManager.cs" />
     <Compile Include="WindowsManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
