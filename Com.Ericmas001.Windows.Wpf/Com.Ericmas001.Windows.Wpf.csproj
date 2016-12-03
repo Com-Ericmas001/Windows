@@ -61,15 +61,9 @@
   <ItemGroup>
     <Compile Include="BgTaskManager.cs" />
     <Compile Include="BindingProxy.cs" />
-    <Compile Include="Converters\EnumAbbreviationConverter.cs" />
     <Compile Include="Converters\EnumDisplayNameConverter.cs" />
-    <Compile Include="Converters\EnumMatchToBooleanConverter.cs" />
-    <Compile Include="Converters\EnumTagConverter.cs" />
-    <Compile Include="Converters\FlagEnumBoolConverter.cs" />
     <Compile Include="Converters\MultiplyConverter.cs" />
     <Compile Include="Converters\NullToBooleanConverter.cs" />
-    <Compile Include="Converters\TreeContextMenuVisibilityConverter.cs" />
-    <Compile Include="Converters\WidthHeightToSizeConverter.cs" />
     <Compile Include="CustomControls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
@@ -97,21 +91,11 @@
     <Compile Include="CustomControls\XmlValidator.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="DisplayList.cs" />
-    <Compile Include="Entities\Attributes\ButtonColorAttribute.cs" />
-    <Compile Include="Entities\Attributes\ImageSourceAttribute.cs" />
     <Compile Include="Entities\Attributes\TextLengthAttribute.cs" />
-    <Compile Include="Entities\CategoryInfo.cs" />
-    <Compile Include="Entities\CheckListItem.cs" />
     <Compile Include="Entities\Enums\TextLengthEnum.cs" />
-    <Compile Include="Entities\Filters\BaseCompiledFilter.cs" />
-    <Compile Include="Entities\Filters\BaseFilterInCreation.cs" />
-    <Compile Include="Entities\Filters\SimpleCompiledFilter.cs" />
-    <Compile Include="Entities\Filters\SimpleFilterInCreation.cs" />
-    <Compile Include="Entities\TabSectionInfo.cs" />
     <Compile Include="FastObservableCollection.cs" />
     <Compile Include="FormField.cs" />
     <Compile Include="FormFieldList.cs" />
-    <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\TabControlHelper.cs" />
     <Compile Include="Helpers\TreeViewHelper.cs" />
     <Compile Include="HistoryFileModel.cs" />
@@ -132,8 +116,6 @@
     </Compile>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ScrollableTabPanel.cs" />
-    <Compile Include="TemplateSelectors\SearchInputTemplateSelector.cs" />
-    <Compile Include="TemplateSelectors\TreeElementTemplateSelector.cs" />
     <Compile Include="Validations\CustomValidationAttribute.cs" />
     <Compile Include="Validations\DigitValidationAttribute.cs" />
     <Compile Include="Validations\LetterOrDigitValidationAttribute.cs" />
@@ -144,32 +126,7 @@
     <Compile Include="ViewCommands\ViewCommandAttribute.cs" />
     <Compile Include="ViewCommands\ViewCommandManager.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\LoadingViewModel.cs" />
-    <Compile Include="ViewModels\SearchElements\BaseSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\DateSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\GuidSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\IntPairSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\IntSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\ListSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\TextSearchElement.cs" />
-    <Compile Include="ViewModels\SearchElements\UpperTextSearchElement.cs" />
-    <Compile Include="ViewModels\Sections\ActionButtonSection.cs" />
-    <Compile Include="ViewModels\Sections\CategorySection.cs" />
-    <Compile Include="ViewModels\Sections\ChooseGroupViewModel.cs" />
-    <Compile Include="ViewModels\Sections\TabSection.cs" />
     <Compile Include="ViewModels\SingleBgTaskViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\BaseContentViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\BaseGroupedContentViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\BaseTabViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\MultiCategoriesNewTabViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\NewTabViewModel.cs" />
-    <Compile Include="ViewModels\Tabs\TabControlViewModel.cs" />
-    <Compile Include="ViewModels\Trees\CollapseAllMenuItem.cs" />
-    <Compile Include="ViewModels\Trees\CollapseMenuItem.cs" />
-    <Compile Include="ViewModels\Trees\ExpandAllMenuItem.cs" />
-    <Compile Include="ViewModels\Trees\ExpandMenuItem.cs" />
-    <Compile Include="ViewModels\Trees\TreeContextMenuItemViewModel.cs" />
-    <Compile Include="ViewModels\Trees\TreeElementViewModel.cs" />
     <Compile Include="Views\ChooseGroupView.xaml.cs">
       <DependentUpon>ChooseGroupView.xaml</DependentUpon>
     </Compile>
@@ -241,10 +198,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\TreeItemStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\ValidationStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -257,47 +210,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Templates\Filters\AddAFilterTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\Filters\CommandsDataTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\Filters\ComparatorsDataTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\Filters\FieldTypesDataTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\Filters\FiltersViewerTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Templates\LoadingDataTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\SearchInputTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\SearchInputTemplate\SearchDateTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\SearchInputTemplate\SearchListTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\SearchInputTemplate\SearchPairTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\SearchInputTemplate\SearchTextTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
