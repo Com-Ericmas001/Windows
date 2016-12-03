@@ -1,4 +1,4 @@
-# Com.Ericmas001.Office 
+# Com.Ericmas001.Windows 
 [![com-ericmas001 MyGet Build Status](https://www.myget.org/BuildSource/Badge/com-ericmas001?identifier=a7848e5f-ff3e-4136-bd6b-df8583d59d75)](https://www.myget.org/)
 
 ###Current Version: 0.4.0 *(2016-12-03)*
