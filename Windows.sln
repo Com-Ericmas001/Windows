@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ericmas001.Windows.Wpf"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ericmas001.Windows.DataItems", "Com.Ericmas001.Windows.DataItems\Com.Ericmas001.Windows.DataItems.csproj", "{C01A3952-DA92-4D52-837C-0F123C5A937D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ericmas001.Windows", "Com.Ericmas001.Windows\Com.Ericmas001.Windows.csproj", "{DF489C0D-25A4-4E0B-A158-0457528AD4DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C01A3952-DA92-4D52-837C-0F123C5A937D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C01A3952-DA92-4D52-837C-0F123C5A937D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C01A3952-DA92-4D52-837C-0F123C5A937D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF489C0D-25A4-4E0B-A158-0457528AD4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF489C0D-25A4-4E0B-A158-0457528AD4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF489C0D-25A4-4E0B-A158-0457528AD4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF489C0D-25A4-4E0B-A158-0457528AD4DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
