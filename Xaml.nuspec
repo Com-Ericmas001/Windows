@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>Com.Ericmas001.Windows.Wpf</id>
+        <id>Com.Ericmas001.Windows.Xaml</id>
         <version>$version$</version>
-        <title>Com.Ericmas001.Windows.Wpf</title>
+        <title>Com.Ericmas001.Windows.Xaml</title>
         <authors>Ericmas001</authors>
         <licenseUrl>https://raw.githubusercontent.com/Com-Ericmas001/Windows/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/Com-Ericmas001/Windows</projectUrl>
         <iconUrl>https://avatars2.githubusercontent.com/u/19626491</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>Com.Ericmas001.Windows.Wpf</description>
-        <summary>Com.Ericmas001.Windows.Wpf</summary>
+        <description>Com.Ericmas001.Windows.Xaml</description>
+        <summary>Com.Ericmas001.Windows.Xaml</summary>
         <releaseNotes>Development Version</releaseNotes>
         <copyright />
         <language>en</language>
         <dependencies>
-            <dependency id="Com.Ericmas001.Common" version="0.4.6" />
+            <dependency id="Com-Ericmas001.Windows" version="0.3.0" />
         </dependencies>
     </metadata>
     <files>
-    	<file src="Com.Ericmas001.Windows.Wpf\bin\$configuration$\Com.Ericmas001.Windows.Wpf.dll" target="lib\net40\" />
+    	<file src="Com.Ericmas001.Windows.Xaml\bin\$configuration$\Com.Ericmas001.Windows.Xaml.dll" target="lib\net45\" />
   </files>
 </package>
