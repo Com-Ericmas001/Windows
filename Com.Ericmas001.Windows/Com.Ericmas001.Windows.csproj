@@ -71,19 +71,29 @@
   <ItemGroup>
     <Compile Include="Attributes\ButtonColorAttribute.cs" />
     <Compile Include="Attributes\ImageSourceAttribute.cs" />
+    <Compile Include="Attributes\TextLengthAttribute.cs" />
     <Compile Include="BaseViewModel.cs" />
+    <Compile Include="BindingProxy.cs" />
     <Compile Include="Converters\EnumAbbreviationConverter.cs" />
     <Compile Include="Converters\EnumDisplayNameConverter.cs" />
     <Compile Include="Converters\EnumMatchToBooleanConverter.cs" />
     <Compile Include="Converters\EnumTagConverter.cs" />
     <Compile Include="Converters\FlagEnumBoolConverter.cs" />
     <Compile Include="Converters\MultiplyConverter.cs" />
+    <Compile Include="Converters\NullToBooleanConverter.cs" />
     <Compile Include="Converters\TreeContextMenuVisibilityConverter.cs" />
     <Compile Include="Converters\WidthHeightToSizeConverter.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="DisplayList.cs" />
+    <Compile Include="Enums\TextLengthEnum.cs" />
     <Compile Include="FastObservableCollection.cs" />
+    <Compile Include="FormField.cs" />
+    <Compile Include="FormFieldList.cs" />
+    <Compile Include="HistoryFileModel.cs" />
+    <Compile Include="IWorkInBackground.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollableTabPanel.cs" />
     <Compile Include="TemplateSelectors\TreeElementTemplateSelector.cs" />
     <Compile Include="Util\ColorHelper.cs" />
     <Compile Include="ViewModels\MultiCategoriesNewTabViewModel.cs" />
@@ -105,6 +115,7 @@
     <Compile Include="ViewModels\BaseTabViewModel.cs" />
     <Compile Include="ViewModels\LoadingViewModel.cs" />
     <Compile Include="ViewModels\NewTabViewModel.cs" />
+    <Compile Include="ViewModels\SingleBgTaskViewModel.cs" />
     <Compile Include="ViewModels\TabControlViewModel.cs" />
     <Compile Include="ViewModels\Trees\CollapseAllMenuItem.cs" />
     <Compile Include="ViewModels\Trees\CollapseMenuItem.cs" />
@@ -112,6 +123,8 @@
     <Compile Include="ViewModels\Trees\ExpandMenuItem.cs" />
     <Compile Include="ViewModels\Trees\TreeContextMenuItemViewModel.cs" />
     <Compile Include="ViewModels\Trees\TreeElementViewModel.cs" />
+    <Compile Include="WindowsUtil.cs" />
+    <Compile Include="WpfWindowManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
