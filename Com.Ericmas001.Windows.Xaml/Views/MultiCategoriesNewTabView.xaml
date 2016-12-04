@@ -57,18 +57,20 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <ItemsControl ItemsSource="{Binding Sections}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Expander Style="{StaticResource CoolExpanderStyleSimple}" Background="{Binding Info.Background}" VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="0" IsExpanded="{Binding IsExpanded}" Width="{Binding SectionWidth}">
-                        <Expander.Header>
-                            <TextBlock Text="{Binding Info.Description}" Foreground="{Binding Info.HeaderForeground}" FontWeight="Bold" />
-                        </Expander.Header>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Sections}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Style="{StaticResource CoolExpanderStyleSimple}" Background="{Binding Info.Background}" VerticalAlignment="Top" HorizontalAlignment="Stretch" BorderThickness="0" IsExpanded="{Binding IsExpanded}" Width="{Binding SectionWidth}">
+                            <Expander.Header>
+                                <TextBlock Text="{Binding Info.Description}" Foreground="{Binding Info.HeaderForeground}" FontWeight="Bold" />
+                            </Expander.Header>
 
-                        <ContentPresenter Content="{Binding}" />
-                    </Expander>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                            <ContentPresenter Content="{Binding}" />
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </DockPanel>
 </UserControl>

@@ -79,28 +79,35 @@ namespace Com.Ericmas001.Windows
             OnRequestClose(this, new EventArgs());
         }
 
-        public static TViewModel ShowDialog<TViewModel, TWindow>()
-            where TViewModel : BaseViewModel
+        public static BaseViewModel ShowDialog<TWindow>(BaseViewModel vm)
             where TWindow : Window, new()
         {
-            var window = new TWindow();
-            var vm = window.DataContext as TViewModel;
-            if (vm != null)
-                vm.OnRequestClose += (s, e) => window.Close();
+            var window = new TWindow { DataContext = vm };
+            vm.OnRequestClose += (s, e) => window.Close();
             window.ShowDialog();
             return vm;
         }
-
-        public static TViewModel ShowDialogSTA<TViewModel, TWindow>()
-            where TViewModel : BaseViewModel
+        public static TViewModel ShowDialog<TWindow, TViewModel>()
+            where TViewModel : BaseViewModel, new()
             where TWindow : Window, new()
         {
-            TViewModel vm = null;
-            Thread viewerThread = new Thread(delegate() { vm = ShowDialog<TViewModel, TWindow>(); });
+            return (TViewModel)ShowDialog<TWindow>(new TViewModel());
+        }
+        public static BaseViewModel ShowDialogSTA<TWindow>(BaseViewModel vm)
+            where TWindow : Window, new()
+        {
+            Thread viewerThread = new Thread(delegate () { vm = ShowDialog<TWindow>(vm); });
             viewerThread.SetApartmentState(ApartmentState.STA); // needs to be STA or throws exception
             viewerThread.Start();
             viewerThread.Join();
             return vm;
         }
+        public static TViewModel ShowDialogSTA<TWindow, TViewModel>()
+            where TViewModel : BaseViewModel, new()
+            where TWindow : Window, new()
+        {
+            return (TViewModel)ShowDialogSTA<TWindow>(new TViewModel());
+        }
+
     }
 }
