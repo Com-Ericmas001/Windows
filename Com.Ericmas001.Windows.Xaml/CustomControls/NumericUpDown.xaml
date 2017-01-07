@@ -1,0 +1,46 @@
+﻿<!-- From https://denisdoucet.visualstudio.com/Apps/_versionControl?path=%24%2FApps%2FMain%2FCustomControls%2FControls%2FNumericUpDown.xaml -->
+<UserControl x:Class="Com.Ericmas001.Windows.Xaml.CustomControls.NumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:Com.Ericmas001.Windows.Converters;assembly=Com.Ericmas001.Windows" 
+             x:Name="NumericUpDownControl"
+             mc:Ignorable="d" Height="21" BorderBrush="#FFABADB3" BorderThickness="1" Background="White">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Com.Ericmas001.Windows.Xaml;component/Resources/ImageResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:NumericUpDowValueToString x:Key="NumericUpDowValueToString"/>
+            <ControlTemplate x:Key="ScrollBarControlTemplate" TargetType="{x:Type ScrollBar}">
+                <Grid x:Name="Bg" SnapsToDevicePixels="True" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="{Binding BorderThickness.Bottom, ElementName=NumericUpDownControl}"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <RepeatButton x:Name="PART_LineUpButton" Command="ScrollBar.LineDownCommand" Padding="0" IsTabStop="False" Focusable="False" BorderThickness="0" >
+                        <Image Source="{StaticResource ArrowUp}" Margin="0"/>
+                    </RepeatButton>
+                    <Separator Grid.Row="1" Margin="0" Background="{TemplateBinding BorderBrush}" ></Separator>
+                    <RepeatButton x:Name="PART_LineDownButton" Command="ScrollBar.LineUpCommand" Grid.Row="2" Padding="0" IsTabStop="False" Focusable="False" BorderThickness="0" >
+                        <Image Source="{StaticResource ArrowDown}" Margin="0"/>
+                    </RepeatButton>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel>
+        <ScrollBar ContextMenu="{x:Null}" DockPanel.Dock="Right" BorderBrush="{Binding BorderBrush, ElementName=NumericUpDownControl}" SmallChange="{Binding Increment, ElementName=NumericUpDownControl}" Minimum="{Binding Minimum, ElementName=NumericUpDownControl}" Maximum="{Binding Maximum, ElementName=NumericUpDownControl}" LargeChange="{Binding Increment, ElementName=NumericUpDownControl, Mode=OneWay}" Value="{Binding Value, ElementName=NumericUpDownControl}" RenderTransformOrigin="0.5,0.5" Template="{DynamicResource ScrollBarControlTemplate}" BorderThickness="0" Width="16" />
+        <Border DockPanel.Dock="Right" Margin="0" Background="{Binding BorderBrush, ElementName=NumericUpDownControl}" Width="{Binding BorderThickness.Right, ElementName=NumericUpDownControl}" />
+        <TextBox x:Name="textBox" MaxLines="1" PreviewTextInput="textBox_PreviewTextInput" LostFocus="textBox_LostFocus" BorderThickness="0" Background="{Binding Background, ElementName=NumericUpDownControl}" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <MultiBinding Converter="{StaticResource NumericUpDowValueToString}" >
+                    <Binding Path="Value" ElementName="NumericUpDownControl" Mode="TwoWay" />
+                    <Binding Path="DecimalPlaces" ElementName="NumericUpDownControl" Mode="OneWay" />
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+    </DockPanel>
+</UserControl>

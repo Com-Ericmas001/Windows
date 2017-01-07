@@ -81,6 +81,7 @@
     <Compile Include="Converters\FlagEnumBoolConverter.cs" />
     <Compile Include="Converters\MultiplyConverter.cs" />
     <Compile Include="Converters\NullToBooleanConverter.cs" />
+    <Compile Include="Converters\NumericUpDowValueToString.cs" />
     <Compile Include="Converters\TreeContextMenuVisibilityConverter.cs" />
     <Compile Include="Converters\WidthHeightToSizeConverter.cs" />
     <Compile Include="DelegateCommand.cs" />

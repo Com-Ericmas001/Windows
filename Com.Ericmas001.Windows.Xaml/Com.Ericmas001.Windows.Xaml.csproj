@@ -58,6 +58,9 @@
     </Compile>
     <Compile Include="CustomControls\CoolRadioButton.cs" />
     <Compile Include="CustomControls\CoolTabPanel.cs" />
+    <Compile Include="CustomControls\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CoolXmlBrowserControl.xaml.cs">
       <DependentUpon>CoolXmlBrowserControl.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\CoolHtmlBrowserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\NumericUpDown.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -216,6 +223,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\xml-pretty-print.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ArrowDown.png" />
+    <Content Include="Resources\ArrowUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
