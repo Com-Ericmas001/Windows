@@ -93,6 +93,9 @@
     <Compile Include="HistoryFileModel.cs" />
     <Compile Include="IWorkInBackground.cs" />
     <Compile Include="Logs.cs" />
+    <Compile Include="Enums\MouseWheelDirectionEnum.cs" />
+    <Compile Include="MarkupExtensions\MouseWheel.cs" />
+    <Compile Include="MouseGestures\MouseWheelGesture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrollableTabPanel.cs" />
     <Compile Include="TemplateSelectors\TreeElementTemplateSelector.cs" />
