@@ -77,6 +77,8 @@
       <DependentUpon>XmlBrowserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\XmlValidator.cs" />
+    <Compile Include="Effects\AngularGradientEffect.cs" />
+    <Compile Include="Helpers\InputBindingHelper.cs" />
     <Compile Include="Helpers\TabControlHelper.cs" />
     <Compile Include="Helpers\TreeViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,6 +235,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AngularGradientEffect.hlsl" />
+    <Resource Include="Resources\AngularGradientEffect.ps" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
