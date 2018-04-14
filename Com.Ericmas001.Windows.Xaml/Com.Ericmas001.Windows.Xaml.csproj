@@ -100,6 +100,7 @@
     <Compile Include="Helpers\TabControlHelper.cs" />
     <Compile Include="Helpers\TreeViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TabControlApp.cs" />
     <Compile Include="Views\MultiCategoriesNewTabView.xaml.cs">
       <DependentUpon>MultiCategoriesNewTabView.xaml</DependentUpon>
     </Compile>

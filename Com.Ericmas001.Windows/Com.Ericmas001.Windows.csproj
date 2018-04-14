@@ -90,7 +90,7 @@
     <Compile Include="HistoryFileModel.cs" />
     <Compile Include="IAppCategoryViewModel.cs" />
     <Compile Include="IAppWindowViewModel.cs" />
-    <Compile Include="ITabControlWindowParms.cs" />
+    <Compile Include="ITabControlAppParms.cs" />
     <Compile Include="IWorkInBackground.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="Enums\MouseWheelDirectionEnum.cs" />

@@ -4,9 +4,9 @@ namespace Com.Ericmas001.Windows.ViewModels
 {
     public class TabControlWindowViewModel : TabControlViewModel, IAppWindowViewModel
     {
-        private readonly ITabControlWindowParms m_Parms;
+        private readonly ITabControlAppParms m_Parms;
 
-        public TabControlWindowViewModel(ITabControlWindowParms parms)
+        public TabControlWindowViewModel(ITabControlAppParms parms)
         {
             m_Parms = parms;
             AppWindow.Instance = this;

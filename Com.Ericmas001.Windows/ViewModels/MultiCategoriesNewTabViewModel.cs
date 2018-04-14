@@ -12,7 +12,7 @@ namespace Com.Ericmas001.Windows.ViewModels
 {
     public class MultiCategoriesNewTabViewModel : NewTabViewModel
     {
-        private readonly ITabControlWindowParms m_Parms;
+        private readonly ITabControlAppParms m_Parms;
 
         public override BaseTabViewModel CreateContentTab()
         {
@@ -121,7 +121,7 @@ namespace Com.Ericmas001.Windows.ViewModels
         protected override string IconBigImageName => m_Parms.MainIconName;
         public override string TabTitle => m_Parms.AppTitle;
 
-        public MultiCategoriesNewTabViewModel(ITabControlWindowParms parms)
+        public MultiCategoriesNewTabViewModel(ITabControlAppParms parms)
         {
             m_Parms = parms;
             Init();
