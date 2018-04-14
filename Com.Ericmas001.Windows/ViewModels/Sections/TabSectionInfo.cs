@@ -15,8 +15,10 @@ namespace Com.Ericmas001.Windows.ViewModels.Sections
             ButtonBrush = Colors.DarkSlateGray;
             Description = string.Empty;
             Priorite = 100;
+            SectionWidth = 400;
         }
 
+        public int SectionWidth { get; set; }
         public string IconImageSmallName { get; set; }
 
         public string IconImageBigName { get; set; }

@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Windows.Media;
 using Com.Ericmas001.Common;
 using Com.Ericmas001.Common.Attributes;
-using Com.Ericmas001.Windows.Attributes;
 using Com.Ericmas001.Windows.ViewModels.Sections;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
-    public class MultiCategoriesNewTabViewModel : NewTabViewModel
+    public abstract class MultiCategoriesNewTabViewModel<TCategory> : NewTabViewModel
+        where TCategory : struct
     {
-        private readonly ITabControlWindowParms m_Parms;
 
         public override BaseTabViewModel CreateContentTab()
         {
@@ -31,14 +28,14 @@ namespace Com.Ericmas001.Windows.ViewModels
 
         public bool HasFooterActions => m_FooterActions.Any();
 
-        protected virtual IEnumerable<AppCategory> ExcludeCategories(IEnumerable<AppCategory> categories)
+        protected virtual IEnumerable<TCategory> ExcludeCategories(IEnumerable<TCategory> categories)
         {
-            return categories.Where(x => !x.Hidden);
+            return categories;
         }
 
         private void AddAllCategoriesSection()
         {
-            m_Sections.AddRange(ExcludeCategories(m_Parms.Categories).Select(x => CreateSectionWithHandlers(CreateCategorySection(x))));
+            m_Sections.AddRange(ExcludeCategories(EnumUtil.AllValues<TCategory>()).OrderBy(x => ((Enum)(object)x).GetAttribute<PriorityAttribute>().Priority).ThenBy(x => ((Enum)(object)x).DisplayName()).Select(x => CreateSectionWithHandlers(CreateCategorySection(x))));
         }
 
         protected virtual void AddAllSections()
@@ -69,61 +66,18 @@ namespace Com.Ericmas001.Windows.ViewModels
             m_FooterActions.Add(CreateActionWithHandlers(action));
         }
 
-        protected virtual TabSection CreateCategorySection(AppCategory cat)
+        protected virtual TabSection CreateCategorySection(TCategory cat)
         {
-            var ctor = cat.MenuViewModelType.GetConstructor(Type.EmptyTypes);
-            var section = ctor?.Invoke(new object[0]) as TabSection;
-            if (section != null)
-            {
-                if (!string.IsNullOrEmpty(cat.ImageNameSmall))
-                    section.Info.IconImageSmallName = cat.ImageNameSmall;
-
-                if (!string.IsNullOrEmpty(cat.ImageNameBig))
-                    section.Info.IconImageBigName = cat.ImageNameBig;
-
-                if (!string.IsNullOrEmpty(cat.MenuColor))
-                {
-                    try
-                    {
-                        var bc = new BrushConverter();
-                        section.Info.Background = (SolidColorBrush)bc.ConvertFromString(cat.MenuColor);
-                    }
-                    catch
-                    {
-                        //too bad
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(cat.MenuButtonColor))
-                {
-                    try
-                    {
-                        var bc = new BrushConverter();
-                        section.Info.ButtonBrush = ((SolidColorBrush) bc.ConvertFromString(cat.MenuButtonColor)).Color;
-                    }
-                    catch
-                    {
-                        //too bad
-                    }
-                }
-
-                section.Info.Description = cat.Title;
-                section.Info.SectionWidth = m_Parms.MenuSectionsWidth;
-            }
-
-            return section;
+            throw new NotImplementedException("You must override CreateCategorySection to use it !");
         }
 
-        protected void Init()
+        protected virtual void Init()
         {
 
         }
-        protected override string IconBigImageName => m_Parms.MainIconName;
-        public override string TabTitle => m_Parms.AppTitle;
 
-        public MultiCategoriesNewTabViewModel(ITabControlWindowParms parms)
+        public MultiCategoriesNewTabViewModel()
         {
-            m_Parms = parms;
             Init();
 
             AddAllSections();

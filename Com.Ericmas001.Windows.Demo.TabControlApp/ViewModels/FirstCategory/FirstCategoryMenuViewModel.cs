@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows.Input;
-using Com.Ericmas001.Windows.Demo.TabControlApp.Attributes;
-using Com.Ericmas001.Windows.Demo.TabControlApp.Enums;
 using Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory.Models;
 using Com.Ericmas001.Windows.ViewModels;
+using Com.Ericmas001.Windows.ViewModels.Sections;
 using GalaSoft.MvvmLight.CommandWpf;
 
 namespace Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory
 {
-    [AppCategory(AppCategoryEnum.FirstCategory)]
-    class FirstCategoryMenuViewModel : MyCategorySection
+    public class FirstCategoryMenuViewModel : TabSection
     {
         public HistoricItemsViewModel SomeTextVm { get; }
         private bool m_SomeBool;
@@ -25,7 +19,7 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory
 
         private RelayCommand m_OkCommand;
         public ICommand OkCommand => m_OkCommand ?? (m_OkCommand = new RelayCommand(OnOkCommand, ValidateOkCommand));
-        public FirstCategoryMenuViewModel() : base(AppCategoryEnum.FirstCategory)
+        public FirstCategoryMenuViewModel()
         {
             var settings = FirstCategorySettings.LoadSettings();
             SomeTextVm = new HistoricItemsViewModel(settings.SomeTextHistory);

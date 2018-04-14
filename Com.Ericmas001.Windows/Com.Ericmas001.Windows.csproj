@@ -63,7 +63,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCategory.cs" />
+    <Compile Include="AppWindow.cs" />
     <Compile Include="Attributes\ButtonColorAttribute.cs" />
+    <Compile Include="Attributes\HiddenAttribute.cs" />
     <Compile Include="Attributes\ImageSourceAttribute.cs" />
     <Compile Include="Attributes\TextLengthAttribute.cs" />
     <Compile Include="BaseViewModel.cs" />
@@ -85,6 +88,9 @@
     <Compile Include="FormField.cs" />
     <Compile Include="FormFieldList.cs" />
     <Compile Include="HistoryFileModel.cs" />
+    <Compile Include="IAppCategoryViewModel.cs" />
+    <Compile Include="IAppWindowViewModel.cs" />
+    <Compile Include="ITabControlWindowParms.cs" />
     <Compile Include="IWorkInBackground.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="Enums\MouseWheelDirectionEnum.cs" />
@@ -95,10 +101,13 @@
     <Compile Include="TemplateSelectors\TreeElementTemplateSelector.cs" />
     <Compile Include="Util\ColorHelper.cs" />
     <Compile Include="Util\WindowsUtil.cs" />
+    <Compile Include="ViewModels\ITabCreationViewModel.cs" />
+    <Compile Include="ViewModels\MultiCategoriesNewTabViewModel.cs" />
+    <Compile Include="ViewModels\TabControlWindowViewModel.cs" />
     <Compile Include="ViewModels\BaseMainWindowViewModel.cs" />
     <Compile Include="ViewModels\HistoricItemsViewModel.cs" />
     <Compile Include="ViewModels\MainTabWindowViewModel.cs" />
-    <Compile Include="ViewModels\MultiCategoriesNewTabViewModel.cs" />
+    <Compile Include="ViewModels\MultiCategoriesNewTabViewModelTCategory.cs" />
     <Compile Include="ViewModels\Sections\ActionButtonSection.cs" />
     <Compile Include="ViewModels\Sections\CategoryInfo.cs" />
     <Compile Include="ViewModels\Sections\CategorySection.cs" />

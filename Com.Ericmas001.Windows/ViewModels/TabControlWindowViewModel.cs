@@ -2,13 +2,14 @@
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
-    public abstract class BaseMainWindowViewModel : TabControlViewModel, IAppWindowViewModel
+    public class TabControlWindowViewModel : TabControlViewModel, IAppWindowViewModel
     {
+        private readonly ITabControlWindowParms m_Parms;
 
-        protected BaseMainWindowViewModel()
+        public TabControlWindowViewModel(ITabControlWindowParms parms)
         {
+            m_Parms = parms;
             AppWindow.Instance = this;
-            AddNewTab();
         }
 
         private bool m_IsWindowActive;
@@ -27,6 +28,9 @@ namespace Com.Ericmas001.Windows.ViewModels
 
         public int ProgressValue { get; set; }
 
-        public abstract string Title { get; }
+        public string Title => m_Parms.AppTitle;
+        protected override bool KeepNewTab => m_Parms.CacheNewTab;
+
+        protected override NewTabViewModel CreateNewTab() => m_Parms.CreateNewTab();
     }
 }

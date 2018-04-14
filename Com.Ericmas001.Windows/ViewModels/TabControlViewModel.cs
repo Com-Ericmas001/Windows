@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
-    public abstract class TabControlViewModel: BaseViewModel
+    public abstract class TabControlViewModel: BaseViewModel, ITabCreationViewModel
     {
         protected virtual NewTabViewModel CreateNewTab() 
         { 
@@ -11,7 +11,7 @@ namespace Com.Ericmas001.Windows.ViewModels
         }
         protected virtual bool KeepNewTab => false;
 
-        public ObservableCollection<BaseTabViewModel> Tabs { get; private set; }
+        public ObservableCollection<BaseTabViewModel> Tabs { get; } = new ObservableCollection<BaseTabViewModel>();
         private NewTabViewModel m_NewTab;
 
         private BaseTabViewModel m_SelectedTab;
@@ -21,30 +21,24 @@ namespace Com.Ericmas001.Windows.ViewModels
             set { Set(ref m_SelectedTab, value); }
         }
 
-        public TabControlViewModel()
-        {
-            Tabs = new ObservableCollection<BaseTabViewModel>();
-            AddNewTab();
-        }
-
         public void AddTab(BaseTabViewModel tab)
         {
             if (tab != null)
             {
-                if (m_NewTab != null)
-                    Tabs.Remove(m_NewTab);
-
                 tab.OnTabCreation += (s, t) => AddTab(t);
                 tab.OnRequestClose += OnTabClosed;
-                Tabs.Add(tab);
+                Tabs.Insert(Tabs.Count-1,tab);
                 SelectedTab = tab;
 
-                AddNewTab();
+                if (!KeepNewTab)
+                    AddNewTab();
             }
         }
 
-        private void AddNewTab()
+        public void AddNewTab()
         {
+            if (m_NewTab != null)
+                Tabs.Remove(m_NewTab);
             bool mustAdd = (!KeepNewTab || m_NewTab == null);
             if (mustAdd)
                 m_NewTab = CreateNewTab();

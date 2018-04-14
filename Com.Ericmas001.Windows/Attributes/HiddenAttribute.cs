@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Com.Ericmas001.Windows.Demo.TabControlApp.Attributes
+namespace Com.Ericmas001.Windows.Attributes
 {
     public class HiddenAttribute : Attribute
     {

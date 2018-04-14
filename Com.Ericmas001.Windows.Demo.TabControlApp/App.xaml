@@ -16,7 +16,6 @@
                 <ResourceDictionary Source="/Com.Ericmas001.Windows.Xaml;component/Resources/ImageResources.xaml"/>
                 <ResourceDictionary Source="/Com.Ericmas001.Windows.Xaml;component/Templates/TabTemplate.xaml"/>
                 <ResourceDictionary Source="/Com.Ericmas001.Windows.Xaml;component/Templates/LoadingDataTemplate.xaml"/>
-                <ResourceDictionary Source="/Com.Ericmas001.Windows.Demo.TabControlApp;component/Resources/ImageResources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:EnumMatchToBooleanConverter x:Key="EnumConverter" />

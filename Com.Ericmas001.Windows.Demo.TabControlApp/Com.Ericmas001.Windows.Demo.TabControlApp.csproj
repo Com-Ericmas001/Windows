@@ -77,46 +77,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Attributes\AppCategoryAttribute.cs" />
-    <Compile Include="Attributes\HiddenAttribute.cs" />
-    <Compile Include="Enums\AppCategoryEnum.cs" />
+    <Compile Include="AppConfig.cs" />
     <Compile Include="ViewModels\FirstCategory\FirstCategoryMainTabViewModel.cs" />
     <Compile Include="ViewModels\FirstCategory\FirstCategoryMenuViewModel.cs" />
     <Compile Include="ViewModels\FirstCategory\Models\FirstCategoryParms.cs" />
     <Compile Include="ViewModels\FirstCategory\Models\FirstCategorySettings.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MyCategorySection.cs" />
-    <Compile Include="ViewModels\NewTaskViewModel.cs" />
     <Compile Include="Views\MainTabViews\FirstCategoryMainTabView.xaml.cs">
       <DependentUpon>FirstCategoryMainTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MenuViews\FirstCategoryMenuView.xaml.cs">
       <DependentUpon>FirstCategoryMenuView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Resources\ImageResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Templates\ResultTemplates.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Templates\NewTabTemplates.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\MainTabViews\FirstCategoryMainTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,17 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="demo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\result_error.png" />
-    <Resource Include="Resources\result_ok.png" />
-    <Resource Include="Resources\result_soso.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\loading.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,4 +14,9 @@
     <BitmapImage x:Key="ImgNewWindow16" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/window-new-small.png" />
     <BitmapImage x:Key="ArrowUp" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/ArrowUp.png" />
     <BitmapImage x:Key="ArrowDown" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/ArrowDown.png" />
+    <BitmapImage x:Key="ResultOk" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/result_ok.png" />
+    <BitmapImage x:Key="ResultError" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/result_error.png" />
+    <BitmapImage x:Key="ResultSoso" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/result_soso.png" />
+    <BitmapImage x:Key="Loading" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/loading.png" />
+    <BitmapImage x:Key="Refresh" UriSource="/Com.Ericmas001.Windows.Xaml;component/Resources/refresh.png" />
 </ResourceDictionary>

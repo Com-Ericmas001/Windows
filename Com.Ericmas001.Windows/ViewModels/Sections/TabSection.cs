@@ -22,8 +22,12 @@ namespace Com.Ericmas001.Windows.ViewModels.Sections
             }
         }
 
-        public TabSectionInfo Info { get; protected set; }
+        public TabSectionInfo Info { get; protected set; } = new TabSectionInfo();
 
-        public virtual int SectionWidth { get { return 400; } }
+        public virtual int SectionWidth => Info.SectionWidth;
+        public override BaseTabViewModel CreateContentTab()
+        {
+            return null;
+        }
     }
 }

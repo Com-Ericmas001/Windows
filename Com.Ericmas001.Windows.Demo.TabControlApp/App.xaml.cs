@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Com.Ericmas001.Windows.Xaml.Windows;
 
 namespace Com.Ericmas001.Windows.Demo.TabControlApp
 {
@@ -9,9 +10,8 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            // Create main application window, starting minimized if specified
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            var window = new TabControlWindow(new AppConfig());
+            window.Show();
         }
     }
 }

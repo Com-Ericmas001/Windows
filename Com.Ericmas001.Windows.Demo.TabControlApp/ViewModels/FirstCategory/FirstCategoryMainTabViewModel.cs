@@ -86,7 +86,7 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory
             finally
             {
                 TabIconName = NORMAL_IMAGE;
-                BaseMainWindowViewModel.ShouldWindowBlink = true;
+                AppWindow.ShouldWindowBlink = true;
             }
         }
 

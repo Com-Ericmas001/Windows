@@ -103,6 +103,7 @@
     <Compile Include="Views\MultiCategoriesNewTabView.xaml.cs">
       <DependentUpon>MultiCategoriesNewTabView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TabControlWindow.cs" />
     <Compile Include="Windows\MainTabWindow.xaml.cs">
       <DependentUpon>MainTabWindow.xaml</DependentUpon>
     </Compile>
@@ -266,6 +267,21 @@
     <None Include="packages.config" />
     <None Include="Resources\AngularGradientEffect.hlsl" />
     <Resource Include="Resources\AngularGradientEffect.ps" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\result_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\result_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\result_soso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
