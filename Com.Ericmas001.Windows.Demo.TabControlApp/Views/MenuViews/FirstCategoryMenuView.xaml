@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Com.Ericmas001.Windows.Demo.TabControlApp.Views.MenuViews.FirstCategoryMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:customControls="clr-namespace:Com.Ericmas001.Windows.Xaml.CustomControls;assembly=Com.Ericmas001.Windows.Xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500" Foreground="Black">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Margin="10" >
+            <customControls:CoolButton Margin="5" FontSize="16" HorizontalAlignment="Center" Command="{Binding OkCommand}" TextMargin="5,0,5,5" ImageMargin="5" TextImageOrientation="Horizontal" ButtonImageSize="32" ButtonImage="{StaticResource First}" FontWeight="Bold" ButtonColor="DeepSkyBlue">GO</customControls:CoolButton>
+        </StackPanel>
+        <StackPanel Margin="10">
+            <TextBlock HorizontalAlignment="Center" FontSize="14" FontWeight="Bold">Some Text</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10">(Just write something ...)</TextBlock>
+            <ComboBox ItemsSource="{Binding SomeTextVm.Items}"  Text="{Binding SomeTextVm.CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" MinWidth="200"
+                      IsEditable="True"  IsTextSearchEnabled="True" Height="20" FontSize="11" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Stretch" >
+            </ComboBox>
+            <TextBlock HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,10,0,0">Some Bool</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10">(Just check it ... or not !)</TextBlock>
+            <CheckBox HorizontalAlignment="Center" IsChecked="{Binding SomeBool, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+    </DockPanel>
+</UserControl>

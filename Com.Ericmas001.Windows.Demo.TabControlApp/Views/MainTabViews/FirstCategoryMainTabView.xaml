@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Com.Ericmas001.Windows.Demo.TabControlApp.Views.MainTabViews.FirstCategoryMainTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:customControls="clr-namespace:Com.Ericmas001.Windows.Xaml.CustomControls;assembly=Com.Ericmas001.Windows.Xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Margin="5">
+                <customControls:CoolButton Visibility="{Binding CanCreateNewWindow, Converter={StaticResource BoolToVisConverter}}" VerticalAlignment="Top" DockPanel.Dock="Right" Width="20" Height="20" ImageMargin="2" Command="{Binding NewWindowCommand}" ButtonImage="{StaticResource ImgNewWindow16}" TextImageOrientation="Vertical" ButtonImageSize="16" Style="{StaticResource CoolButtonSteel}">
+
+                    <customControls:CoolButton.CommandParameter>
+                        <MultiBinding Converter="{StaticResource SizeConverter}">
+                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}"/>
+                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}"/>
+                        </MultiBinding>
+                    </customControls:CoolButton.CommandParameter>
+                </customControls:CoolButton>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
+                        <Image Source="{StaticResource Demo}" Height="32" Width="32" Stretch="UniformToFill" Margin="0,0,15,0"/>
+                        <TextBlock HorizontalAlignment="Center" Text="First Category" FontSize="18" FontWeight="Bold" Margin="10" />
+                        <Image Source="{StaticResource First}" Height="32" Width="32" Stretch="UniformToFill" Margin="15,0,0,0"/>
+                    </StackPanel>
+                    <Expander Style="{StaticResource CoolExpanderStyleSimple}" BorderThickness="0" HorizontalAlignment="Center" Width="700"  Margin="10">
+                        <Expander.Header>
+                            <TextBlock Text="Parameters" Foreground="White" FontWeight="Bold" />
+                        </Expander.Header>
+                        <StackPanel HorizontalAlignment="Center">
+                            <StackPanel Margin="3">
+                                <TextBox Style="{StaticResource SelectableTextBlockLikeStyle}" HorizontalAlignment="Center" Margin="0,5,0,1" Text="{Binding Parms.SomeText, Mode=OneWay}" />
+                                <TextBox Style="{StaticResource SelectableTextBlockLikeStyle}" HorizontalAlignment="Center" Margin="0,5,0,1" Text="{Binding SomeBool, Mode=OneWay}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                    <customControls:CoolButton  Margin ="5" Width="32" Height="28" ImageMargin="1" Command="{Binding RefreshCommand}" ButtonImage="{StaticResource Refresh}" TextImageOrientation="Vertical" ButtonImageSize="24" Style="{StaticResource CoolButtonBlue}" />
+                </StackPanel>
+            </DockPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="{StaticResource ResultOk}" Width="128" Height="128" Visibility="{Binding IsSuccess, Converter={StaticResource BoolToVisConverter}, UpdateSourceTrigger=PropertyChanged}" />
+                <Image Source="{StaticResource ResultError}" Width="128" Height="128" Visibility="{Binding IsError, Converter={StaticResource BoolToVisConverter}, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </DockPanel>
+
+        <ContentPresenter Content="{Binding LoadingDataVm}" ContentTemplate="{StaticResource LoadingDataTemplate}" />
+    </Grid>
+</UserControl>
