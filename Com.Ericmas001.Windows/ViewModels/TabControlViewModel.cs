@@ -27,12 +27,24 @@ namespace Com.Ericmas001.Windows.ViewModels
             {
                 tab.OnTabCreation += (s, t) => AddTab(t);
                 tab.OnRequestClose += OnTabClosed;
+                tab.OnAttachDetachWindow += Tab_OnAttachDetachWindow;
                 Tabs.Insert(Tabs.Count-1,tab);
                 SelectedTab = tab;
 
                 if (!KeepNewTab)
                     AddNewTab();
             }
+        }
+
+        private void Tab_OnAttachDetachWindow(object sender, BaseTabViewModel e)
+        {
+            var window = new MainTabWindow(new MainTabWindowViewModel(e, e.TabHeader, e.TabIcon, vm =>
+            {
+                AddTab(e);
+                vm.CloseView();
+            } ));
+            window.Show();
+            e.CloseView();
         }
 
         public void AddNewTab()
@@ -56,6 +68,7 @@ namespace Com.Ericmas001.Windows.ViewModels
             if (tab == null)
                 return;
             tab.OnRequestClose -= OnTabClosed;
+            tab.OnAttachDetachWindow -= Tab_OnAttachDetachWindow;
             Tabs.Remove(tab);
         }
         public void SelectNewTab()

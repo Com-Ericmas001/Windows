@@ -105,9 +105,6 @@
       <DependentUpon>MultiCategoriesNewTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\TabControlWindow.cs" />
-    <Compile Include="Windows\MainTabWindow.xaml.cs">
-      <DependentUpon>MainTabWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\SingleBgTaskWindow.xaml.cs">
       <DependentUpon>SingleBgTaskWindow.xaml</DependentUpon>
     </Compile>
@@ -196,10 +193,6 @@
     <Page Include="Views\MultiCategoriesNewTabView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\MainTabWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SingleBgTaskWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

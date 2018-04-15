@@ -74,7 +74,7 @@ namespace Com.Ericmas001.Windows
             return validations.Select(x => x.Validate(value)).FirstOrDefault(x => !String.IsNullOrEmpty(x));
         }
 
-        protected void CloseView()
+        public void CloseView()
         {
             OnRequestClose(this, new EventArgs());
         }

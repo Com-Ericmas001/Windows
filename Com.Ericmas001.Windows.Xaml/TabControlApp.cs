@@ -5,19 +5,19 @@ using Com.Ericmas001.Windows.Xaml.Windows;
 
 namespace Com.Ericmas001.Windows.Xaml
 {
-    public class TabControlApp : Application
+    public static class TabControlApp
     {
-        public TabControlApp(ITabControlAppParms parms)
+        public static void Init(Application app, ITabControlAppParms parms)
         {
             foreach (var rd in parms.ResourceDictionaries)
             {
-                Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(rd, UriKind.Relative) });
+                app.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(rd, UriKind.Relative) });
             }
             foreach (var r in parms.Resources)
             {
                 var ctor = r.Value.GetConstructor(Type.EmptyTypes);
                 var obj = ctor?.Invoke(new object[0]);
-                Resources.Add(r.Key, obj);
+                app.Resources.Add(r.Key, obj);
             }
             var menuDic = new ResourceDictionary();
             foreach (var cat in parms.Categories)
@@ -29,7 +29,7 @@ namespace Com.Ericmas001.Windows.Xaml
                 };
                 menuDic.Add(new DataTemplateKey(cat.MenuViewModelType), template);
             }
-            Resources.MergedDictionaries.Add(menuDic);
+            app.Resources.MergedDictionaries.Add(menuDic);
             var mainTabsDic = new ResourceDictionary();
             foreach (var mtv in parms.MainTabViews)
             {
@@ -40,16 +40,16 @@ namespace Com.Ericmas001.Windows.Xaml
                 };
                 mainTabsDic.Add(new DataTemplateKey(mtv.Key), template);
             }
-            Resources.MergedDictionaries.Add(mainTabsDic);
+            app.Resources.MergedDictionaries.Add(mainTabsDic);
             var imagesDic = new ResourceDictionary();
             foreach (var img in parms.Images)
             {
                 imagesDic.Add(img.Key, new BitmapImage(new Uri("pack://application:,,/" + img.Value)));
             }
-            Resources.MergedDictionaries.Add(imagesDic);
+            app.Resources.MergedDictionaries.Add(imagesDic);
 
-            MainWindow = new TabControlWindow(parms);
-            MainWindow.Show();
+            app.MainWindow = new TabControlWindow(parms);
+            app.MainWindow.Show();
         }
     }
 }

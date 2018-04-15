@@ -10,6 +10,13 @@ namespace Com.Ericmas001.Windows.ViewModels
     public class BaseTabViewModel : BaseViewModel
     {
         public event NewTabEventHandler OnTabCreation = delegate { };
+        public event EventHandler<BaseTabViewModel> OnAttachDetachWindow = delegate { };
+
+        private RelayCommand m_AttachDetachWindowCommand;
+        public ICommand AttachDetachWindowCommand => m_AttachDetachWindowCommand ?? (m_AttachDetachWindowCommand = new RelayCommand(() =>
+        {
+            OnAttachDetachWindow(this, this);
+        }));
 
         private ICommand m_CloseTabCommand;
 

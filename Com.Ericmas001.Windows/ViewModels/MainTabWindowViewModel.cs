@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
     public class MainTabWindowViewModel : BaseViewModel
     {
+        private readonly Action<MainTabWindowViewModel> m_OnAttachFnct;
         private double m_Width;
         private double m_Height;
         private ImageSource m_Icon;
@@ -28,13 +31,21 @@ namespace Com.Ericmas001.Windows.ViewModels
             set => Set(ref m_Icon, value);
         }
 
-        public MainTabWindowViewModel(BaseViewModel content, string name, Size s, string iconName)
+        public MainTabWindowViewModel(BaseTabViewModel content, string name, ImageSource icon, Action<MainTabWindowViewModel> onAttachFnct)
         {
+            m_OnAttachFnct = onAttachFnct;
             Content = content;
             Name = name;
-            Width = Math.Min(1152, s.Width);
-            Height = Math.Min(864, s.Height);
-            Icon = String.IsNullOrEmpty(iconName) ? null : Application.Current.FindResource(iconName) as ImageSource;
+            Width = 1152;
+            Height = 864;
+            Icon = icon;
+            content.OnAttachDetachWindow += ContentOnOnAttachDetachWindow;
+        }
+
+        private void ContentOnOnAttachDetachWindow(object sender, BaseTabViewModel baseTabViewModel)
+        {
+            m_OnAttachFnct(this);
+            baseTabViewModel.OnAttachDetachWindow -= ContentOnOnAttachDetachWindow;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Input;
 using Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory.Models;
+using Com.Ericmas001.Windows.Util;
 using Com.Ericmas001.Windows.ViewModels;
 using Com.Ericmas001.Windows.ViewModels.Sections;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -21,7 +22,7 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory
         public ICommand OkCommand => m_OkCommand ?? (m_OkCommand = new RelayCommand(OnOkCommand, ValidateOkCommand));
         public FirstCategoryMenuViewModel()
         {
-            var settings = FirstCategorySettings.LoadSettings();
+            var settings = SettingFile<FirstCategorySettings>.Load();
             SomeTextVm = new HistoricItemsViewModel(settings.SomeTextHistory);
             SomeBool = settings.SomeBool;
         }
@@ -33,11 +34,11 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory
         private void OnOkCommand()
         {
             SomeTextVm.AddCurrentItem();
-            new FirstCategorySettings
+            SettingFile<FirstCategorySettings>.Save(new FirstCategorySettings
             {
                 SomeBool = SomeBool,
                 SomeTextHistory = SomeTextVm.AllItems.ToArray()
-            }.Save();
+            });
 
             CreateNewTab(new FirstCategoryMainTabViewModel(new FirstCategoryParms
             {

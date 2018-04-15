@@ -35,9 +35,6 @@
   <PropertyGroup>
     <ApplicationIcon>demo.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Com.Ericmas001.Windows.Demo.TabControlApp.MyApp</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Com.Ericmas001.Common, Version=0.4.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Com.Ericmas001.Common.0.4.7\lib\net40\Com.Ericmas001.Common.dll</HintPath>
@@ -76,6 +73,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
     <Compile Include="MyApp.cs" />
     <Compile Include="ViewModels\FirstCategory\FirstCategoryMainTabViewModel.cs" />
     <Compile Include="ViewModels\FirstCategory\FirstCategoryMenuViewModel.cs" />
@@ -86,6 +87,10 @@
     </Compile>
     <Compile Include="Views\MenuViews\FirstCategoryMenuView.xaml.cs">
       <DependentUpon>FirstCategoryMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MainTabViews\FirstCategoryMainTabView.xaml">
       <SubType>Designer</SubType>
