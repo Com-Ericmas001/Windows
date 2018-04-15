@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using Com.Ericmas001.Windows.Converters;
 using Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Views.MainTabViews;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Views.MenuViews;
@@ -26,9 +24,6 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp
         public Dictionary<string,Type> Resources => new Dictionary<string, Type>
         {
         };
-
-        public ITabCreationViewModel MainViewModel => new TabControlWindowViewModel(this);
-        public NewTabViewModel CreateNewTab() => new MultiCategoriesNewTabViewModel(this);
 
         public int MenuSectionsWidth => 600;
         public bool CacheNewTab => false;

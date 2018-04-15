@@ -1,11 +1,25 @@
-﻿using System.Windows.Shell;
+﻿using System;
+using System.Windows.Shell;
+using Com.Ericmas001.DependencyInjection;
+using Com.Ericmas001.Windows.Services;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
     public abstract class BaseMainWindowViewModel : TabControlViewModel, IAppWindowViewModel
     {
+        private class DumbResolverService : IResolverService
+        {
+            public T Resolve<T>()
+            {
+                throw new NotImplementedException();
+            }
 
-        protected BaseMainWindowViewModel()
+            public object Resolve(Type t)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        protected BaseMainWindowViewModel() : base(new TabFactoryService(new DumbResolverService()))
         {
             AppWindow.Instance = this;
             AddNewTab();

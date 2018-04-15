@@ -17,6 +17,7 @@
     <dependencies>
       <dependency id="MvvmLightLibs" version="5.4.1" />
       <dependency id="Com.Ericmas001.Common" version="0.4.7" />
+      <dependency id="Com.Ericmas001.DependencyInjection" version="0.0.6" />
       <dependency id="Newtonsoft.Json" version="9.0.1" />
     </dependencies>
   </metadata>

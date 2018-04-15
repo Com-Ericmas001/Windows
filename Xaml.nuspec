@@ -16,7 +16,7 @@
     <language>en</language>
     <dependencies>
       <dependency id="MvvmLightLibs" version="5.4.1" />
-      <dependency id="Com.Ericmas001.Windows" version="0.4.7" />
+      <dependency id="Com.Ericmas001.Windows" version="0.4.8" />
     </dependencies>
   </metadata>
   <files>

@@ -7,7 +7,7 @@ namespace Com.Ericmas001.Windows.Xaml
 {
     public static class TabControlApp
     {
-        public static void Init(Application app, ITabControlAppParms parms)
+        public static void Init(Application app, ITabControlAppParms parms, TabControlWindow window)
         {
             foreach (var rd in parms.ResourceDictionaries)
             {
@@ -47,9 +47,9 @@ namespace Com.Ericmas001.Windows.Xaml
                 imagesDic.Add(img.Key, new BitmapImage(new Uri("pack://application:,,/" + img.Value)));
             }
             app.Resources.MergedDictionaries.Add(imagesDic);
-
-            app.MainWindow = new TabControlWindow(parms);
-            app.MainWindow.Show();
+            window.Init();
+            app.MainWindow = window;
+            app.MainWindow?.Show();
         }
     }
 }

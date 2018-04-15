@@ -16,15 +16,22 @@ namespace Com.Ericmas001.Windows.Xaml.Windows
 {
     public class TabControlWindow : Window
     {
+        private readonly ITabControlAppParms m_Parms;
+        private readonly ITabCreationViewModel m_MainViewModel;
         public static TabControlWindow Instance { get; private set; }
 
-        public TabControlWindow(ITabControlAppParms parms)
+        public TabControlWindow(ITabControlAppParms parms, ITabCreationViewModel mainViewModel)
         {
+            m_Parms = parms;
+            m_MainViewModel = mainViewModel;
             Instance = this;
-            var context = parms.MainViewModel;
-            context.AddNewTab();
-            DataContext = context;
             Loaded += BaseMainWindow_Loaded;
+        }
+
+        public void Init()
+        {
+            m_MainViewModel.AddNewTab();
+            DataContext = m_MainViewModel;
             Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/Com.Ericmas001.Windows.Xaml;component/Templates/TabTemplate.xaml", UriKind.Relative) });
             TaskbarItemInfo = new TaskbarItemInfo();
             SetBinding(TitleProperty, new Binding("Title"));
@@ -35,7 +42,7 @@ namespace Com.Ericmas001.Windows.Xaml.Windows
             BindingOperations.SetBinding(TaskbarItemInfo, TaskbarItemInfo.ProgressStateProperty, new Binding("ProgressState"));
             BindingOperations.SetBinding(TaskbarItemInfo, TaskbarItemInfo.ProgressValueProperty, new Binding("ProgressValue"));
             Content = new Grid();
-            Icon = string.IsNullOrEmpty(parms.MainIconName) ? null : Application.Current.FindResource(parms.MainIconName) as ImageSource;
+            Icon = string.IsNullOrEmpty(m_Parms.MainIconName) ? null : Application.Current.FindResource(m_Parms.MainIconName) as ImageSource;
         }
         protected override void OnContentChanged(object oldContent, object newContent)
         {

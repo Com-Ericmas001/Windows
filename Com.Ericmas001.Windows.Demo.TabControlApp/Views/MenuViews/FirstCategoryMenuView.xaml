@@ -12,12 +12,12 @@
         </StackPanel>
         <StackPanel Margin="10">
             <TextBlock HorizontalAlignment="Center" FontSize="14" FontWeight="Bold">Some Text</TextBlock>
-            <TextBlock HorizontalAlignment="Center" FontSize="10">(Just write something ...)</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding SomeTextHelp}"/>
             <ComboBox ItemsSource="{Binding SomeTextVm.Items}"  Text="{Binding SomeTextVm.CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" MinWidth="200"
                       IsEditable="True"  IsTextSearchEnabled="True" Height="20" FontSize="11" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Stretch" >
             </ComboBox>
             <TextBlock HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,10,0,0">Some Bool</TextBlock>
-            <TextBlock HorizontalAlignment="Center" FontSize="10">(Just check it ... or not !)</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding SomeBoolHelp}"/>
             <CheckBox HorizontalAlignment="Center" IsChecked="{Binding SomeBool, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DockPanel>

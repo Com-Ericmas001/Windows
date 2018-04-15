@@ -13,9 +13,6 @@ namespace Com.Ericmas001.Windows
         IEnumerable<string> ResourceDictionaries { get; }
         Dictionary<string, Type> Resources { get; }
 
-        ITabCreationViewModel MainViewModel { get; }
-        NewTabViewModel CreateNewTab();
-
         int MenuSectionsWidth { get; }
         bool CacheNewTab { get; }
         IEnumerable<AppCategory> Categories { get; }

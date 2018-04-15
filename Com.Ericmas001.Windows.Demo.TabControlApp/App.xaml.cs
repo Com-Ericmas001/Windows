@@ -1,5 +1,6 @@
 using System.Windows;
 using Com.Ericmas001.Windows.Xaml.Windows;
+using Unity;
 
 namespace Com.Ericmas001.Windows.Demo.TabControlApp
 {
@@ -10,7 +11,8 @@ namespace Com.Ericmas001.Windows.Demo.TabControlApp
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            Xaml.TabControlApp.Init(this, new MyApp());
+            var container = UnitiyConfig.CreateContainer();
+            Xaml.TabControlApp.Init(this, container.Resolve<ITabControlAppParms>(), container.Resolve<TabControlWindow>());
         }
     }
 }

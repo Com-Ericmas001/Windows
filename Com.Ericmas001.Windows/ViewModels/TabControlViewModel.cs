@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Com.Ericmas001.Windows.Services.Interfaces;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
     public abstract class TabControlViewModel: BaseViewModel, ITabCreationViewModel
     {
+        private readonly ITabFactoryService m_TabFactoryService;
         protected virtual NewTabViewModel CreateNewTab() 
         { 
             return null; 
@@ -15,6 +17,12 @@ namespace Com.Ericmas001.Windows.ViewModels
         private NewTabViewModel m_NewTab;
 
         private BaseTabViewModel m_SelectedTab;
+
+        protected TabControlViewModel(ITabFactoryService tabFactoryService)
+        {
+            m_TabFactoryService = tabFactoryService;
+        }
+
         public BaseTabViewModel SelectedTab
         {
             get { return m_SelectedTab; }
@@ -26,6 +34,7 @@ namespace Com.Ericmas001.Windows.ViewModels
             if (tab != null)
             {
                 tab.OnTabCreation += (s, t) => AddTab(t);
+                tab.OnCreateNewTab += (s, t, p) => AddTab(m_TabFactoryService.CreateTab(t, p));
                 tab.OnRequestClose += OnTabClosed;
                 tab.OnAttachDetachWindow += Tab_OnAttachDetachWindow;
                 Tabs.Insert(Tabs.Count-1,tab);
@@ -58,7 +67,11 @@ namespace Com.Ericmas001.Windows.ViewModels
             if (m_NewTab != null)
             {
                 if (mustAdd)
+                {
                     m_NewTab.OnTabCreation += (s, t) => AddTab(t);
+                    m_NewTab.OnCreateNewTab += (s, t, p) => AddTab(m_TabFactoryService.CreateTab(t, p));
+                }
+
                 Tabs.Add(m_NewTab);
             }
         }

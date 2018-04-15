@@ -24,7 +24,7 @@
                         </Expander.Header>
                         <StackPanel HorizontalAlignment="Center">
                             <StackPanel Margin="3">
-                                <TextBox Style="{StaticResource SelectableTextBlockLikeStyle}" HorizontalAlignment="Center" Margin="0,5,0,1" Text="{Binding Parms.SomeText, Mode=OneWay}" />
+                                <TextBox Style="{StaticResource SelectableTextBlockLikeStyle}" HorizontalAlignment="Center" Margin="0,5,0,1" Text="{Binding SomeText, Mode=OneWay}" />
                                 <TextBox Style="{StaticResource SelectableTextBlockLikeStyle}" HorizontalAlignment="Center" Margin="0,5,0,1" Text="{Binding SomeBool, Mode=OneWay}" />
                             </StackPanel>
                         </StackPanel>

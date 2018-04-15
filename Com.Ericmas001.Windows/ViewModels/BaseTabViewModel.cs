@@ -7,9 +7,11 @@ using GalaSoft.MvvmLight.CommandWpf;
 namespace Com.Ericmas001.Windows.ViewModels
 {
     public delegate void NewTabEventHandler(object sender, BaseTabViewModel tab);
+    public delegate void CreateNewTabEventHandler(object sender, Type vmType, object parms);
     public class BaseTabViewModel : BaseViewModel
     {
         public event NewTabEventHandler OnTabCreation = delegate { };
+        public event CreateNewTabEventHandler OnCreateNewTab = delegate { };
         public event EventHandler<BaseTabViewModel> OnAttachDetachWindow = delegate { };
 
         private RelayCommand m_AttachDetachWindowCommand;
@@ -55,6 +57,14 @@ namespace Com.Ericmas001.Windows.ViewModels
         public void CreateNewTab(BaseTabViewModel tab)
         {
             OnTabCreation(this, tab);
+        }
+        public void CreateNewTab<TVm, TParms>(TParms parms) where TVm : IMainTabViewModel<TParms>
+        {
+            OnCreateNewTab(this, typeof(TVm), parms);
+        }
+        public void CreateNewTab(Type vmType, object parms)
+        {
+            OnCreateNewTab(this, vmType, parms);
         }
     }
 }

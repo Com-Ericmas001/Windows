@@ -6,6 +6,7 @@ using System.Windows.Media;
 using Com.Ericmas001.Common;
 using Com.Ericmas001.Common.Attributes;
 using Com.Ericmas001.Windows.Attributes;
+using Com.Ericmas001.Windows.Services.Interfaces;
 using Com.Ericmas001.Windows.ViewModels.Sections;
 
 namespace Com.Ericmas001.Windows.ViewModels
@@ -13,6 +14,22 @@ namespace Com.Ericmas001.Windows.ViewModels
     public class MultiCategoriesNewTabViewModel : NewTabViewModel
     {
         private readonly ITabControlAppParms m_Parms;
+        private readonly ITabFactoryService m_TabFactoryService;
+
+        public MultiCategoriesNewTabViewModel(ITabControlAppParms parms, ITabFactoryService tabFactoryService)
+        {
+            m_Parms = parms;
+            m_TabFactoryService = tabFactoryService;
+            Init();
+
+            AddAllSections();
+            AddAllHeaderActions();
+            AddAllFooterActions();
+
+            if (Sections.Any())
+                Sections.First().IsExpanded = true;
+
+        }
 
         public override BaseTabViewModel CreateContentTab()
         {
@@ -71,8 +88,7 @@ namespace Com.Ericmas001.Windows.ViewModels
 
         protected virtual TabSection CreateCategorySection(AppCategory cat)
         {
-            var ctor = cat.MenuViewModelType.GetConstructor(Type.EmptyTypes);
-            var section = ctor?.Invoke(new object[0]) as TabSection;
+            var section = m_TabFactoryService.CreateTabSection(cat.MenuViewModelType);
             if (section != null)
             {
                 if (!string.IsNullOrEmpty(cat.ImageNameSmall))
@@ -121,23 +137,10 @@ namespace Com.Ericmas001.Windows.ViewModels
         protected override string IconBigImageName => m_Parms.MainIconName;
         public override string TabTitle => m_Parms.AppTitle;
 
-        public MultiCategoriesNewTabViewModel(ITabControlAppParms parms)
-        {
-            m_Parms = parms;
-            Init();
-
-            AddAllSections();
-            AddAllHeaderActions();
-            AddAllFooterActions();
-
-            if (Sections.Any())
-                Sections.First().IsExpanded = true;
-
-        }
-
         private ActionButtonSection CreateActionWithHandlers(ActionButtonSection action)
         {
             action.OnTabCreation += (sender, tab) => CreateNewTab(tab);
+            action.OnCreateNewTab += (sender, vmType, parms) => CreateNewTab(vmType, parms);
             return action;
         }
 
@@ -145,6 +148,7 @@ namespace Com.Ericmas001.Windows.ViewModels
         {
             section.OnAfterExpanded += section_OnAfterExpanded;
             section.OnTabCreation += (sender, tab) => CreateNewTab(tab);
+            section.OnCreateNewTab += (sender, vmType, parms) => CreateNewTab(vmType, parms);
             return section;
         }
 

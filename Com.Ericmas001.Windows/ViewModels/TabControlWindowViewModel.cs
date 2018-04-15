@@ -1,14 +1,17 @@
 ﻿using System.Windows.Shell;
+using Com.Ericmas001.Windows.Services.Interfaces;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {
     public class TabControlWindowViewModel : TabControlViewModel, IAppWindowViewModel
     {
         private readonly ITabControlAppParms m_Parms;
+        private readonly ITabFactoryService m_TabFactory;
 
-        public TabControlWindowViewModel(ITabControlAppParms parms)
+        public TabControlWindowViewModel(ITabControlAppParms parms, ITabFactoryService tabFactory) : base(tabFactory)
         {
             m_Parms = parms;
+            m_TabFactory = tabFactory;
             AppWindow.Instance = this;
         }
 
@@ -31,6 +34,6 @@ namespace Com.Ericmas001.Windows.ViewModels
         public string Title => m_Parms.AppTitle;
         protected override bool KeepNewTab => m_Parms.CacheNewTab;
 
-        protected override NewTabViewModel CreateNewTab() => m_Parms.CreateNewTab();
+        protected override NewTabViewModel CreateNewTab() => m_TabFactory.CreateNewTab();
     }
 }
