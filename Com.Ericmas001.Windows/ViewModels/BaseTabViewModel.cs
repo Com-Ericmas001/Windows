@@ -66,5 +66,8 @@ namespace Com.Ericmas001.Windows.ViewModels
         {
             OnCreateNewTab(this, vmType, parms);
         }
+        public virtual void OnLoadFinished()
+        {
+        }
     }
 }

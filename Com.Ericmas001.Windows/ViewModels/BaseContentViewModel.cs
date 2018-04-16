@@ -9,7 +9,7 @@ namespace Com.Ericmas001.Windows.ViewModels
 {
     public abstract class BaseContentViewModel : BaseTabViewModel
     {
-        private readonly LoadingViewModel m_LoadingDataVm;
+        private readonly Dispatcher m_AppCurrentDispatcher;
         private bool? m_Success;
         protected abstract string NormalIconImageName { get; }
         private string m_IconImageName;
@@ -37,24 +37,13 @@ namespace Com.Ericmas001.Windows.ViewModels
             }
         }
 
-        public LoadingViewModel LoadingDataVm
-        {
-            get { return m_LoadingDataVm; }
-        } 
+        public LoadingViewModel LoadingDataVm { get; private set; }
 
-        public virtual string BigLoadingMessage
-        {
-            get { return "Loading Data ..."; }
-        }
-        public virtual string SmallLoadingMessage
-        {
-            get { return "Fetching data from Database ..."; }
-        }
+        public virtual string BigLoadingMessage => "Loading ...";
 
-        public virtual bool CanRefresh
-        {
-            get { return true; }
-        }
+        public virtual string SmallLoadingMessage => "Fetching data ...";
+
+        public virtual bool CanRefresh => true;
 
         private RelayCommand m_RefreshCommand;
         public ICommand RefreshCommand
@@ -62,15 +51,9 @@ namespace Com.Ericmas001.Windows.ViewModels
             get { return m_RefreshCommand ?? (m_RefreshCommand = new RelayCommand(RefreshDataAndInterface, () => CanRefresh)); }
         }
 
-        public BaseContentViewModel( Dispatcher appCurrentDispatcher )
+        protected BaseContentViewModel( Dispatcher appCurrentDispatcher )
         {
-            m_LoadingDataVm = new LoadingViewModel(appCurrentDispatcher, ObtainDataLocal)
-            {
-                BigLoadingMessage = BigLoadingMessage,
-                SmallLoadingMessage = SmallLoadingMessage
-            };
-            m_LoadingDataVm.OnDataObtained += RefreshInterface;
-            m_LoadingDataVm.OnErrorObtained += m_LoadingDataVm_OnErrorObtained;
+            m_AppCurrentDispatcher = appCurrentDispatcher;
         }
 
         void m_LoadingDataVm_OnErrorObtained(object sender, EventArgs<Exception> e)
@@ -111,6 +94,18 @@ namespace Com.Ericmas001.Windows.ViewModels
         protected void RefreshDataAndInterface()
         {
             LoadingDataVm.Execute();
+        }
+
+        public override void OnLoadFinished()
+        {
+            LoadingDataVm = new LoadingViewModel(m_AppCurrentDispatcher, ObtainDataLocal)
+            {
+                BigLoadingMessage = BigLoadingMessage,
+                SmallLoadingMessage = SmallLoadingMessage
+            };
+            LoadingDataVm.OnDataObtained += RefreshInterface;
+            LoadingDataVm.OnErrorObtained += m_LoadingDataVm_OnErrorObtained;
+            RefreshDataAndInterface();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Com.Ericmas001.DependencyInjection;
 using Com.Ericmas001.Windows.Services.Interfaces;
@@ -32,6 +31,8 @@ namespace Com.Ericmas001.Windows.Services
 
             var parmProperty = t.GetProperties().Single(p => p.Name == "Parms" && p.PropertyType == parms.GetType());
             parmProperty.SetValue(tab,parms);
+
+            tab.OnLoadFinished();
 
             return tab;
         }
