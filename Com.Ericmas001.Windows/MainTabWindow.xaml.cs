@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using Com.Ericmas001.Windows.ViewModels;
 
 namespace Com.Ericmas001.Windows

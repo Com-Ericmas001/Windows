@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Com.Ericmas001.DependencyInjection;
+using Com.Ericmas001.DependencyInjection.Resolvers.Interfaces;
 using Com.Ericmas001.Windows.Services.Interfaces;
 using Com.Ericmas001.Windows.ViewModels;
 using Com.Ericmas001.Windows.ViewModels.Sections;

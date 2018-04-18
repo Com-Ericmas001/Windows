@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Com.Ericmas001.Windows.Validations
+﻿namespace Com.Ericmas001.Windows.Validations
 {
     public class NullOrEmptyValidationAttribute : SimpleValidationAttribute
     {

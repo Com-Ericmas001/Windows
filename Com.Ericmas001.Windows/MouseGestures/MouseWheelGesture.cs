@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Com.Ericmas001.Windows.Enums;
 
 namespace Com.Ericmas001.Windows.MouseGestures

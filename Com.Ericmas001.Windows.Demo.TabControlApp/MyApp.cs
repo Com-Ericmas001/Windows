@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Com.Ericmas001.Windows.Demo.TabControlApp.ViewModels.FirstCategory;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Views.MainTabViews;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Views.MenuViews;
-using Com.Ericmas001.Windows.ViewModels;
 
 namespace Com.Ericmas001.Windows.Demo.TabControlApp
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Com.Ericmas001.DependencyInjection.Unity;
+﻿using Com.Ericmas001.DependencyInjection.Unity;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Services;
 using Com.Ericmas001.Windows.Demo.TabControlApp.Services.Interfaces;
 using Unity;

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Media;
-using Com.Ericmas001.Common;
-using Com.Ericmas001.Common.Attributes;
-using Com.Ericmas001.Windows.Attributes;
 using Com.Ericmas001.Windows.Services.Interfaces;
 using Com.Ericmas001.Windows.ViewModels.Sections;
 

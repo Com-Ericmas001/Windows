@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Shell;
-using Com.Ericmas001.DependencyInjection;
+using Com.Ericmas001.DependencyInjection.Resolvers.Interfaces;
 using Com.Ericmas001.Windows.Services;
 
 namespace Com.Ericmas001.Windows.ViewModels
@@ -11,12 +12,13 @@ namespace Com.Ericmas001.Windows.ViewModels
         {
             public T Resolve<T>()
             {
-                throw new NotImplementedException();
+                return (T)Resolve(typeof(T));
             }
 
             public object Resolve(Type t)
             {
-                throw new NotImplementedException();
+                ConstructorInfo ctor = t.GetConstructor(Type.EmptyTypes);
+                return ctor?.Invoke(new object[0]);
             }
         }
         protected BaseMainWindowViewModel() : base(new TabFactoryService(new DumbResolverService()))

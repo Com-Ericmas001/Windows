@@ -1,5 +1,4 @@
-﻿using System;
-using Com.Ericmas001.Windows.Demo.TabControlApp.Services.Interfaces;
+﻿using Com.Ericmas001.Windows.Demo.TabControlApp.Services.Interfaces;
 
 namespace Com.Ericmas001.Windows.Demo.TabControlApp.Services
 {

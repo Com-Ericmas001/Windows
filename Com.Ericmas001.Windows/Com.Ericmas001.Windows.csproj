@@ -34,8 +34,8 @@
     <Reference Include="Com.Ericmas001.Common, Version=0.4.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Com.Ericmas001.Common.0.4.7\lib\net40\Com.Ericmas001.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Com.Ericmas001.DependencyInjection, Version=0.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Com.Ericmas001.DependencyInjection.0.0.6\lib\net40\Com.Ericmas001.DependencyInjection.dll</HintPath>
+    <Reference Include="Com.Ericmas001.DependencyInjection, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Com.Ericmas001.DependencyInjection.0.1.1\lib\net40\Com.Ericmas001.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.5\lib\net45\CommonServiceLocator.dll</HintPath>

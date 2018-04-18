@@ -93,6 +93,8 @@ namespace Com.Ericmas001.Windows.ViewModels
 
         protected void RefreshDataAndInterface()
         {
+            if(LoadingDataVm == null)
+                OnLoadFinished();
             LoadingDataVm.Execute();
         }
 

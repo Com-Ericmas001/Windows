@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Com.Ericmas001.Windows.ViewModels;
 
 namespace Com.Ericmas001.Windows
 {

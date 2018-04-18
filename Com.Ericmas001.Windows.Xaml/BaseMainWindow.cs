@@ -5,7 +5,6 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Shell;
-using Com.Ericmas001.Windows.ViewModels;
 using Com.Ericmas001.Windows.Xaml.Helpers;
 
 namespace Com.Ericmas001.Windows.Xaml

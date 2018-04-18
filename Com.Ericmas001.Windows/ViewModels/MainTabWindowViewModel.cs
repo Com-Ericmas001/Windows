@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Input;
 using System.Windows.Media;
-using GalaSoft.MvvmLight.CommandWpf;
 
 namespace Com.Ericmas001.Windows.ViewModels
 {

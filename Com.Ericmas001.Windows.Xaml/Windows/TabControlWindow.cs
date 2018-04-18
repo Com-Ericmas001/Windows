@@ -1,14 +1,11 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shell;
-using System.Xml;
 using Com.Ericmas001.Windows.ViewModels;
 using Com.Ericmas001.Windows.Xaml.Helpers;
 
